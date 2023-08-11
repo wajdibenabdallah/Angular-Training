@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <input name="name" placeholder="name" formControlName="name" />
+  <input name="surname" placeholder="surname" formControlName="surname" />
+  <input type="date" name="date" placeholder="date" formControlName="date" />
+  <input type="submit" name="send" [disabled]="false" />
+  <input type="button" name="update" value="update" (click)="onUpdate()" />
+  <input type="button" name="add" value="add" (click)="addInput()" />
+  <div formArrayName="list" *ngFor="let item of list.controls; let i = index">
+    <input name="list-{{ i }}" placeholder="list-{{ i }}" [formControlName]="i" />
+  </div>
+</form>
